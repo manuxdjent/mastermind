@@ -1,0 +1,63 @@
+@keyframes example {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.circuloRojo{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 40px 40px, red, #000);
+  display: inline-block;
+}
+.circuloVerde{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 40px 40px, green, #000);
+  display: inline-block;
+}
+.circuloAmarillo{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 40px 40px, yellow, #000);
+  display: inline-block;
+}
+.circuloAzul{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 40px 40px, blue, #000);
+  display: inline-block;
+}
+h1 {
+  text-align: center;
+  font-family: 'Risque', cursive !important;
+  color: white !important;
+}
+.opciones{
+  text-align: center;
+  margin-top: 2em;
+}
+.resultado{
+  padding: 0.5em;
+  border: 1px solid;
+  background-color: lightblue;
+  text-align: center;
+  margin-top: 1em;
+  border-radius: 20%;
+  animation-name: example;
+  animation-duration: 2s;
+}
+.resultado > div{
+  margin-right: 0.25em;
+}
+div.hvr-float-shadow{
+  vertical-align: initial;
+}
+body{
+  background:linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
