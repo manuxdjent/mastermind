@@ -4,7 +4,8 @@ $(document).ready(function(){
   var combinacion = [];
   var jugador = [];
   var blancos = 0, negros = 0;
-  var puntuacion = "";
+  var puntuacionNegros = "";
+  var puntuacionBlancos = "";
   var hanSalido = [];
   var intentos = 3;
 
@@ -38,10 +39,10 @@ $(document).ready(function(){
   }
   function sacarNegrosBlancos(){
     for (var i = 0; i < negros; i++) {
-      puntuacion += "<div class='negro'></div>";
+      puntuacionNegros += "<div class='negro'></div>";
     }
     for (var i = 0; i < blancos; i++) {
-      puntuacion += "<div class='blanco'></div>";
+      puntuacionBlancos += "<div class='blanco'></div>";
     }
   }
   function variablesReset(){
@@ -49,7 +50,8 @@ $(document).ready(function(){
     jugador = [];
     negros = 0;
     blancos = 0;
-    puntuacion = "";
+    puntuacionNegros = "";
+    puntuacionBlancos = "";
   }
   for (var i = 1; i <= 4; i++) {
           var azar;
@@ -63,7 +65,14 @@ $(document).ready(function(){
   $(".opciones").children()
   .mouseup(function(){
     if (intentos == 0) {
-      html = "<div>Has agotado los intentos, el código era "+combinacion+"</div>";
+      var combinacionHTML = "";
+      for (var i = 0; i < combinacion.length; i++) {
+        if (combinacion[i] == 1) combinacionHTML += "<div class='circuloAzul'></div>";
+        else if (combinacion[i] == 2) combinacionHTML += "<div class='circuloRojo'></div>";
+        else if (combinacion[i] == 3) combinacionHTML += "<div class='circuloVerde'></div>";
+        else if (combinacion[i] == 4) combinacionHTML += "<div class='circuloAmarillo'></div>";
+      }
+      html = "<div>Has agotado los intentos, el código era "+combinacionHTML+"</div><input style='margin-top: 0.5em;margin-bottom: 0.5em;' type='button' onclick='location.reload()' value='Volver a jugar'/>";
       $("h1").html(html);
       $(".opciones").remove();
     } else{
@@ -81,7 +90,7 @@ $(document).ready(function(){
         else{
           alert("Combinacion: "+ combinacion + " Jugador = "+jugador+" Negros = "+negros + "Blancos = "+blancos);
           sacarNegrosBlancos();
-          $("h1").after(html+"<div class='p'>"+puntuacion+"</div></div>");
+          $("h1").after(html+"<div class='pB'>"+puntuacionBlancos+"</div><div class='pN'>"+puntuacionNegros+"</div>");
           html = "<div class='resultado'>";
           variablesReset();
         }
